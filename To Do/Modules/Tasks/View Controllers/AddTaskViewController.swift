@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import DateTimePicker
 import SkyFloatingLabelTextField
 
@@ -30,14 +31,21 @@ class AddTaskViewController: UIViewController {
         dateTimeTextField.delegate = self
     }
     
-    private func showSelectedDate() {
+    private func selectedDateTime() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateTimeTextField.text = formatter.string(from: selectedDate)
+        return formatter.string(from: selectedDate)
+    }
+    
+    private func showSelectedDate() {
+        dateTimeTextField.text = selectedDateTime()
     }
 
     @objc func doneButtonTapped() {
-        // TODO: Save new task
+        var task = Task()
+        task.title = titleTextField.text
+        task.dateTime = selectedDateTime()
+        TasksHandler.shared.insertTask(task: task)
         self.navigationController?.popViewController(animated: true)
     }
     

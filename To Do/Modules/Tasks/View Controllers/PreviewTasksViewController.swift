@@ -17,19 +17,27 @@ class PreviewTasksViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        NotificationCenter.default.addObserver(self, selector: #selector(tasksUpdated(_:)), name: .didReceiveToDoTasks, object: nil)
+        TasksHandler.shared.fetchTasks()
     }
 
+    @objc func tasksUpdated(_ notification: Notification) {
+        tableView.reloadData()
+    }
 }
 
 
 extension PreviewTasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        #warning("Simulation code")
-        return 10
+        return TasksHandler.shared.tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
+        let task = TasksHandler.shared.tasks[indexPath.row]
+        cell.titleLabel.text = task.title
+        cell.dateTimeLabel.text = task.dateTime
+        cell.checkBox.isSelected = task.isDone
         cell.checkBox.stateChangeAnimation = .bounce(.fill)
         return cell
     }

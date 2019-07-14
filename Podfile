@@ -6,7 +6,6 @@ target 'To Do' do
   	use_frameworks!
     inhibit_all_warnings!
     
-    pod 'Firebase/Analytics'
     pod 'Firebase/Database'
     pod 'M13Checkbox'
     pod 'DateTimePicker'
