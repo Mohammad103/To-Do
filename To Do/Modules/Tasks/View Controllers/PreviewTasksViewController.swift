@@ -41,4 +41,15 @@ extension PreviewTasksViewController: UITableViewDelegate, UITableViewDataSource
         cell.checkBox.stateChangeAnimation = .bounce(.fill)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let task = TasksHandler.shared.tasks[indexPath.row]
+            TasksHandler.shared.deleteTask(task: task)
+        }
+    }
 }

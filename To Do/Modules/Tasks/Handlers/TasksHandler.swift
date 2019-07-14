@@ -55,4 +55,9 @@ class TasksHandler {
         })
     }
     
+    func deleteTask(task: Task) {
+        if let key = task.id {
+            refTasks.child(key).removeValue()
+        }
+    }
 }
