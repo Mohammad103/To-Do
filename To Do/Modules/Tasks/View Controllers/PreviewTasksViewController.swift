@@ -35,10 +35,8 @@ extension PreviewTasksViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
         let task = TasksHandler.shared.tasks[indexPath.row]
-        cell.titleLabel.text = task.title
-        cell.dateTimeLabel.text = task.dateTime
-        cell.checkBox.isSelected = task.isDone
-        cell.checkBox.stateChangeAnimation = .bounce(.fill)
+        cell.setup(task: task)
+        cell.delegate = self
         return cell
     }
     
@@ -51,5 +49,12 @@ extension PreviewTasksViewController: UITableViewDelegate, UITableViewDataSource
             let task = TasksHandler.shared.tasks[indexPath.row]
             TasksHandler.shared.deleteTask(task: task)
         }
+    }
+}
+
+
+extension PreviewTasksViewController: TaskTableViewCellDelegate {
+    func taskCheckBoxStateChanged(task: Task) {
+        TasksHandler.shared.updateTask(task: task)
     }
 }

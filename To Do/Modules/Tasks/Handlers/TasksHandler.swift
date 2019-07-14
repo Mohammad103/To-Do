@@ -60,4 +60,15 @@ class TasksHandler {
             refTasks.child(key).removeValue()
         }
     }
+    
+    func updateTask(task: Task) {
+        if let key = task.id {
+            let task = ["id": key,
+                        "title": task.title!,
+                        "date_time": task.dateTime!,
+                        "is_done": task.isDone
+                ] as [String : Any?]
+            refTasks.child(key).setValue(task)
+        }
+    }
 }

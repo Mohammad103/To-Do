@@ -63,6 +63,9 @@
                                                         <constraint firstAttribute="height" constant="25" id="BVY-7s-bCy"/>
                                                         <constraint firstAttribute="width" constant="25" id="OU6-sn-zPz"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="checkboxValueChanged:" destination="cGc-mW-fW5" eventType="valueChanged" id="c2C-3d-KDe"/>
+                                                    </connections>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-oN-66M">
                                                     <rect key="frame" x="57" y="19" width="337" height="54"/>
