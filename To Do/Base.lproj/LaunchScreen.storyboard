@@ -18,17 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jx-Mm-nLT">
-                                <rect key="frame" x="161" y="426.5" width="92.5" height="43.5"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NZl-cX-adw">
+                                <rect key="frame" x="107" y="378.5" width="200" height="139.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="2XL-iq-2V4">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="2a8-Xz-YJ6"/>
+                                            <constraint firstAttribute="width" constant="200" id="5vm-fT-GPy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jx-Mm-nLT">
+                                        <rect key="frame" x="0.0" y="96" width="200" height="43.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2Jx-Mm-nLT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eSy-B2-bbY"/>
-                            <constraint firstItem="2Jx-Mm-nLT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ge2-pO-f1U"/>
+                            <constraint firstItem="NZl-cX-adw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1P4-tK-SfG"/>
+                            <constraint firstItem="NZl-cX-adw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qAL-bx-U1i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,4 +50,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" width="512" height="512"/>
+    </resources>
 </document>
