@@ -17,6 +17,16 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WMQ-tC-6GL">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="OSV-cI-ANg" kind="relationship" relationship="rootViewController" id="eNW-ya-akK"/>
@@ -48,6 +58,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORZ-NT-rX4" customClass="M13Checkbox" customModule="M13Checkbox">
                                                     <rect key="frame" x="16" y="33.5" width="25" height="25"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="BVY-7s-bCy"/>
                                                         <constraint firstAttribute="width" constant="25" id="OU6-sn-zPz"/>
@@ -105,7 +116,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="F4p-Ez-agl">
                         <barButtonItem key="backBarButtonItem" title=" " id="RcN-cr-jpT"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lsU-FK-yfn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lsU-FK-yfn">
+                            <connections>
+                                <segue destination="T4D-B0-fzA" kind="show" id="lve-6x-Zp5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ATS-Ad-ezV" id="ztx-ng-txM"/>
@@ -114,6 +129,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBp-oO-LYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="166.66666666666669" y="97.767857142857139"/>
+        </scene>
+        <!--New Task-->
+        <scene sceneID="fCs-2P-RqC">
+            <objects>
+                <viewController title="New Task" id="T4D-B0-fzA" customClass="AddTaskViewController" customModule="To_Do" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nie-Ng-ojs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m0C-wv-3NJ" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="20" y="160" width="374" height="40"/>
+                                <color key="tintColor" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="V9R-NN-buo"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8IM-r2-X5q" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="20" y="220" width="374" height="40"/>
+                                <color key="tintColor" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JF2-4R-Ua9"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Uph-aZ-Z6R"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Date &amp; Time"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.23137254900000001" green="0.70588235290000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8IM-r2-X5q" firstAttribute="top" secondItem="m0C-wv-3NJ" secondAttribute="bottom" constant="20" id="2pc-mG-CUL"/>
+                            <constraint firstItem="WlT-OJ-XH0" firstAttribute="trailing" secondItem="8IM-r2-X5q" secondAttribute="trailing" constant="20" id="Ayg-uh-Gql"/>
+                            <constraint firstItem="8IM-r2-X5q" firstAttribute="leading" secondItem="WlT-OJ-XH0" secondAttribute="leading" constant="20" id="BPX-xJ-FrF"/>
+                            <constraint firstItem="WlT-OJ-XH0" firstAttribute="trailing" secondItem="m0C-wv-3NJ" secondAttribute="trailing" constant="20" id="Tin-IG-LqH"/>
+                            <constraint firstItem="m0C-wv-3NJ" firstAttribute="top" secondItem="WlT-OJ-XH0" secondAttribute="top" constant="20" id="koR-bi-b6N"/>
+                            <constraint firstItem="m0C-wv-3NJ" firstAttribute="leading" secondItem="WlT-OJ-XH0" secondAttribute="leading" constant="20" id="yuq-HF-7MV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WlT-OJ-XH0"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateTimeTextField" destination="8IM-r2-X5q" id="ek8-Ec-BZT"/>
+                        <outlet property="titleTextField" destination="m0C-wv-3NJ" id="hrT-cB-qVj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JcW-zD-KWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011.5942028985507" y="97.767857142857139"/>
         </scene>
     </scenes>
 </document>

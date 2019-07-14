@@ -14,6 +14,8 @@
 		84293A2422DA73AE00ED19E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84293A2222DA73AE00ED19E5 /* LaunchScreen.storyboard */; };
 		84293A3622DA903000ED19E5 /* PreviewTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84293A3522DA903000ED19E5 /* PreviewTasksViewController.swift */; };
 		84293A3822DA984600ED19E5 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84293A3722DA984600ED19E5 /* TaskTableViewCell.swift */; };
+		84293A3B22DAB73B00ED19E5 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84293A3A22DAB73B00ED19E5 /* AddTaskViewController.swift */; };
+		84293A4022DABBEE00ED19E5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84293A3F22DABBEE00ED19E5 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		84293A2522DA73AE00ED19E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84293A3522DA903000ED19E5 /* PreviewTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTasksViewController.swift; sourceTree = "<group>"; };
 		84293A3722DA984600ED19E5 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		84293A3A22DAB73B00ED19E5 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		84293A3F22DABBEE00ED19E5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BE372FA36E82404E744726C3 /* Pods-To Do.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To Do.debug.xcconfig"; path = "Target Support Files/Pods-To Do/Pods-To Do.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,7 @@
 			children = (
 				84293A1922DA73AC00ED19E5 /* AppDelegate.swift */,
 				84293A2B22DA7E9B00ED19E5 /* Modules */,
+				84293A3D22DABBD100ED19E5 /* Utilities */,
 				84293A2C22DA7EA900ED19E5 /* Assets */,
 			);
 			path = "To Do";
@@ -90,9 +95,7 @@
 		84293A2B22DA7E9B00ED19E5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				84293A2D22DA7EC600ED19E5 /* Preview Tasks */,
-				84293A2E22DA7ED800ED19E5 /* Add Task */,
-				84293A1D22DA73AC00ED19E5 /* Tasks.storyboard */,
+				84293A2D22DA7EC600ED19E5 /* Tasks */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -107,24 +110,15 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		84293A2D22DA7EC600ED19E5 /* Preview Tasks */ = {
+		84293A2D22DA7EC600ED19E5 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
 				84293A2F22DA7EE600ED19E5 /* Models */,
 				84293A3022DA7EED00ED19E5 /* Presenters */,
 				84293A3122DA7EFA00ED19E5 /* View Controllers */,
+				84293A3C22DAB76800ED19E5 /* UI */,
 			);
-			path = "Preview Tasks";
-			sourceTree = "<group>";
-		};
-		84293A2E22DA7ED800ED19E5 /* Add Task */ = {
-			isa = PBXGroup;
-			children = (
-				84293A3222DA7F3900ED19E5 /* Models */,
-				84293A3322DA7F4500ED19E5 /* Presenters */,
-				84293A3422DA7F5200ED19E5 /* View Controllers */,
-			);
-			path = "Add Task";
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 		84293A2F22DA7EE600ED19E5 /* Models */ = {
@@ -146,29 +140,33 @@
 			children = (
 				84293A3722DA984600ED19E5 /* TaskTableViewCell.swift */,
 				84293A3522DA903000ED19E5 /* PreviewTasksViewController.swift */,
+				84293A3A22DAB73B00ED19E5 /* AddTaskViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		84293A3222DA7F3900ED19E5 /* Models */ = {
+		84293A3C22DAB76800ED19E5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				84293A1D22DA73AC00ED19E5 /* Tasks.storyboard */,
 			);
-			path = Models;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		84293A3322DA7F4500ED19E5 /* Presenters */ = {
+		84293A3D22DABBD100ED19E5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84293A3E22DABBD900ED19E5 /* Extensions */,
 			);
-			path = Presenters;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
-		84293A3422DA7F5200ED19E5 /* View Controllers */ = {
+		84293A3E22DABBD900ED19E5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				84293A3F22DABBEE00ED19E5 /* UIColorExtension.swift */,
 			);
-			path = "View Controllers";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84293A3622DA903000ED19E5 /* PreviewTasksViewController.swift in Sources */,
+				84293A3B22DAB73B00ED19E5 /* AddTaskViewController.swift in Sources */,
 				84293A1A22DA73AC00ED19E5 /* AppDelegate.swift in Sources */,
 				84293A3822DA984600ED19E5 /* TaskTableViewCell.swift in Sources */,
+				84293A4022DABBEE00ED19E5 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
