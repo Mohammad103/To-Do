@@ -29,7 +29,7 @@
         <!--Tasks-->
         <scene sceneID="MPz-UY-Y3T">
             <objects>
-                <viewController id="OSV-cI-ANg" sceneMemberID="viewController">
+                <viewController id="OSV-cI-ANg" customClass="PreviewTasksViewController" customModule="To_Do" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uAp-Cv-sua">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +37,61 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-Ad-ezV">
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" rowHeight="92" id="cGc-mW-fW5" customClass="TaskTableViewCell" customModule="To_Do" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cGc-mW-fW5" id="dCL-v1-7Uk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORZ-NT-rX4" customClass="M13Checkbox" customModule="M13Checkbox">
+                                                    <rect key="frame" x="16" y="33.5" width="25" height="25"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="BVY-7s-bCy"/>
+                                                        <constraint firstAttribute="width" constant="25" id="OU6-sn-zPz"/>
+                                                    </constraints>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-oN-66M">
+                                                    <rect key="frame" x="57" y="19" width="337" height="54"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE3-kr-XXb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="337" height="27"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date - Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cks-YE-qPa">
+                                                            <rect key="frame" x="0.0" y="27" width="337" height="27"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nN7-oN-66M" firstAttribute="bottom" secondItem="dCL-v1-7Uk" secondAttribute="bottomMargin" constant="-8" id="77a-tE-Ifb"/>
+                                                <constraint firstItem="ORZ-NT-rX4" firstAttribute="centerY" secondItem="dCL-v1-7Uk" secondAttribute="centerY" id="7W5-Fc-Cc2"/>
+                                                <constraint firstItem="nN7-oN-66M" firstAttribute="trailing" secondItem="dCL-v1-7Uk" secondAttribute="trailingMargin" id="Pmt-Yk-Eqb"/>
+                                                <constraint firstItem="nN7-oN-66M" firstAttribute="leading" secondItem="ORZ-NT-rX4" secondAttribute="trailing" constant="16" id="Qe8-TA-GTU"/>
+                                                <constraint firstItem="nN7-oN-66M" firstAttribute="top" secondItem="dCL-v1-7Uk" secondAttribute="topMargin" constant="8" id="ea7-E9-cFL"/>
+                                                <constraint firstItem="ORZ-NT-rX4" firstAttribute="leading" secondItem="dCL-v1-7Uk" secondAttribute="leading" constant="16" id="jtD-Ak-aXK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="57" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="checkBox" destination="ORZ-NT-rX4" id="VS5-G6-MZ6"/>
+                                            <outlet property="dateTimeLabel" destination="cks-YE-qPa" id="qZb-xC-sjk"/>
+                                            <outlet property="titleLabel" destination="JE3-kr-XXb" id="Kgn-OE-suy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OSV-cI-ANg" id="kaI-Sk-iS4"/>
+                                    <outlet property="delegate" destination="OSV-cI-ANg" id="nHE-Mk-EpB"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,11 +105,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="F4p-Ez-agl">
                         <barButtonItem key="backBarButtonItem" title=" " id="RcN-cr-jpT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lsU-FK-yfn"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ATS-Ad-ezV" id="ztx-ng-txM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBp-oO-LYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168" y="98"/>
+            <point key="canvasLocation" x="166.66666666666669" y="97.767857142857139"/>
         </scene>
     </scenes>
 </document>
